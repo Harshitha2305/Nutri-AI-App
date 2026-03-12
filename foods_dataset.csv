@@ -1,0 +1,98 @@
+food_name,category,calories,protein,carbs,fat,fiber,diet_type,meal_type,cuisine,description
+Oatmeal with Banana,Grains,350,10,65,6,8,vegan,breakfast,international,Rolled oats cooked with milk topped with sliced banana
+Greek Yogurt with Berries,Dairy,280,20,35,5,4,vegetarian,breakfast,international,Creamy greek yogurt loaded with mixed berries
+Scrambled Eggs with Toast,Eggs,380,22,30,15,2,vegetarian,breakfast,international,Fluffy scrambled eggs served with whole wheat toast
+Avocado Toast with Eggs,Eggs,420,18,35,22,7,vegetarian,breakfast,international,Smashed avocado on sourdough with poached eggs
+Smoothie Bowl,Fruits,320,8,60,8,6,vegan,breakfast,international,Blended acai bowl topped with granola and fruits
+Peanut Butter Toast,Nuts,380,14,42,18,5,vegan,breakfast,international,Whole wheat toast spread with natural peanut butter
+Chia Seed Pudding,Seeds,310,9,40,12,11,vegan,breakfast,international,Overnight chia seeds soaked in almond milk with fruits
+Whole Wheat Pancakes,Grains,360,10,58,12,4,vegetarian,breakfast,international,Fluffy pancakes made from whole wheat flour
+Idli with Sambar,Legumes,300,10,55,4,5,vegan,breakfast,indian,Steamed rice cakes served with lentil vegetable soup
+Poha,Grains,280,6,52,8,3,vegan,breakfast,indian,Flattened rice stir-fried with mustard seeds vegetables and peanuts
+Upma,Grains,260,7,45,8,3,vegan,breakfast,indian,Semolina porridge cooked with vegetables and spices
+Dosa with Coconut Chutney,Grains,320,8,55,10,3,vegan,breakfast,indian,Crispy fermented rice crepe served with coconut chutney
+Paneer Paratha,Dairy,450,18,55,16,4,vegetarian,breakfast,indian,Whole wheat flatbread stuffed with spiced cottage cheese
+Besan Chilla,Legumes,290,14,38,8,5,vegan,breakfast,indian,Savory chickpea flour pancake with vegetables
+Aloo Paratha,Grains,400,8,62,14,4,vegan,breakfast,indian,Whole wheat flatbread stuffed with spiced potato filling
+Methi Thepla,Grains,320,9,50,10,6,vegan,breakfast,indian,Thin flatbread made with fenugreek leaves and spices
+Chicken Breast with Rice,Poultry,480,45,50,8,2,non-vegetarian,lunch,international,Grilled chicken breast served with steamed brown rice
+Grilled Salmon with Quinoa,Fish,520,42,45,15,4,non-vegetarian,lunch,international,Herb-crusted salmon fillet with protein-rich quinoa
+Tuna Salad Sandwich,Fish,420,32,45,12,4,non-vegetarian,lunch,international,Chunky tuna mixed with celery on whole grain bread
+Lentil Soup with Bread,Legumes,380,16,58,8,12,vegan,lunch,international,Hearty red lentil soup with crusty whole grain bread
+Chickpea Buddha Bowl,Legumes,440,16,62,14,10,vegan,lunch,international,Roasted chickpeas over greens with tahini dressing
+Tofu Stir-Fry with Noodles,Soy,420,20,55,14,5,vegan,lunch,international,Crispy tofu with mixed vegetables in savory sauce
+Veggie Wrap with Hummus,Vegetables,360,12,52,12,8,vegan,lunch,international,Whole wheat wrap filled with roasted veggies and hummus
+Egg Fried Rice,Eggs,480,18,65,15,3,vegetarian,lunch,international,Classic egg fried rice with peas and carrots
+Dal Tadka with Roti,Legumes,420,18,65,8,10,vegan,lunch,indian,Yellow lentils tempered with cumin and served with flatbread
+Rajma Chawal,Legumes,480,18,75,8,12,vegan,lunch,indian,Kidney bean curry served with steamed basmati rice
+Palak Paneer with Roti,Dairy,480,22,48,22,8,vegetarian,lunch,indian,Cottage cheese in creamy spinach gravy with wheat bread
+Chole Bhature,Legumes,560,18,75,18,10,vegan,lunch,indian,Spiced chickpea curry with fluffy deep-fried bread
+Mixed Dal Khichdi,Legumes,380,14,62,8,8,vegan,lunch,indian,One-pot lentil and rice dish tempered with ghee and spices
+Aloo Gobi with Chapati,Vegetables,360,8,58,12,7,vegan,lunch,indian,Dry potato and cauliflower sabzi with whole wheat flatbread
+Paneer Butter Masala with Rice,Dairy,550,22,65,18,4,vegetarian,lunch,indian,Rich tomato-based cottage cheese curry with basmati rice
+Vegetable Biryani,Grains,460,12,72,14,6,vegan,lunch,indian,Aromatic spiced basmati rice cooked with mixed vegetables
+Chicken Biryani,Poultry,560,38,65,18,4,non-vegetarian,lunch,indian,Fragrant layered rice dish with spiced chicken pieces
+Fish Curry with Rice,Fish,500,38,55,12,3,non-vegetarian,lunch,indian,Coastal style fish curry served with steamed rice
+Chicken Tikka Masala,Poultry,520,40,30,22,4,non-vegetarian,lunch,indian,Tandoor-grilled chicken in rich spiced tomato cream sauce
+Grilled Chicken with Vegetables,Poultry,420,45,20,14,5,non-vegetarian,dinner,international,Herb-grilled chicken breast with roasted seasonal vegetables
+Baked Salmon with Sweet Potato,Fish,480,38,48,12,6,non-vegetarian,dinner,international,Lemon herb baked salmon with caramelized sweet potato
+Spaghetti Bolognese,Meat,580,32,65,18,5,non-vegetarian,dinner,international,Classic pasta with slow-cooked beef and tomato sauce
+Mushroom Risotto,Grains,460,12,72,14,4,vegetarian,dinner,international,Creamy arborio rice with wild mushrooms and parmesan
+Veggie Pasta Arrabiata,Grains,440,14,68,12,6,vegan,dinner,international,Penne in spicy tomato sauce with roasted vegetables
+Tofu Scramble with Veggies,Soy,360,20,30,18,6,vegan,dinner,international,Seasoned tofu crumble with sauteed colorful vegetables
+Stuffed Bell Peppers,Vegetables,380,14,52,12,7,vegetarian,dinner,international,Bell peppers filled with quinoa and cheese
+Paneer Tikka with Salad,Dairy,420,24,22,26,5,vegetarian,dinner,indian,Tandoor-marinated cottage cheese cubes with fresh salad
+Mutton Curry with Rice,Meat,580,38,50,24,3,non-vegetarian,dinner,indian,Slow-cooked spiced lamb curry with steamed basmati rice
+Dal Makhani with Naan,Legumes,520,20,68,18,10,vegetarian,dinner,indian,Creamy black lentil curry with buttered bread
+Soya Chunks Masala,Soy,400,30,42,12,8,vegan,dinner,indian,Textured soy protein in spiced onion tomato gravy
+Prawn Masala with Rice,Seafood,500,36,52,16,3,non-vegetarian,dinner,indian,Coastal spiced prawn curry with steamed rice
+Baingan Bharta with Roti,Vegetables,320,8,48,12,8,vegan,dinner,indian,Smoky roasted eggplant mash with wheat flatbread
+Kadai Paneer with Roti,Dairy,500,24,52,22,6,vegetarian,dinner,indian,Cottage cheese with bell peppers in kadai spice sauce
+Chicken Curry with Rice,Poultry,520,38,50,18,4,non-vegetarian,dinner,indian,Homestyle chicken curry with aromatic basmati rice
+Mixed Nuts,Nuts,180,5,8,16,2,vegan,snack,international,Assorted almonds cashews walnuts and pistachios
+Apple with Peanut Butter,Fruits,220,6,28,10,5,vegan,snack,international,Fresh apple slices with natural peanut butter dip
+Greek Yogurt,Dairy,150,15,12,3,0,vegetarian,snack,international,Plain protein-rich creamy greek yogurt
+Banana,Fruits,110,1,28,0,3,vegan,snack,international,Fresh ripe banana for quick energy
+Hard Boiled Egg,Eggs,80,7,1,5,0,vegetarian,snack,international,Protein-packed perfectly boiled egg
+Hummus with Carrot Sticks,Legumes,160,6,20,8,6,vegan,snack,international,Creamy chickpea dip with crunchy carrot sticks
+Protein Bar,Supplements,220,20,24,6,3,vegetarian,snack,international,High protein nutrition bar for post-workout
+Rice Cakes with Avocado,Grains,180,3,28,7,4,vegan,snack,international,Light rice cakes topped with smashed avocado
+Roasted Chana,Legumes,180,10,28,3,8,vegan,snack,indian,Crunchy spiced roasted chickpeas high in protein
+Sprouts Chaat,Legumes,180,10,28,3,7,vegan,snack,indian,Mixed sprouted legumes with spices and lemon
+Makhana,Seeds,160,5,30,2,0,vegan,snack,indian,Air-popped fox nuts lightly seasoned with rock salt
+Banana with Almonds,Fruits,200,5,32,8,4,vegan,snack,indian,Ripe banana paired with raw soaked almonds
+Idli with Chutney,Legumes,200,7,38,3,4,vegan,snack,indian,Small steamed rice cakes with coconut chutney
+Fruit Chaat,Fruits,150,2,36,1,5,vegan,snack,indian,Seasonal fruit salad with chaat masala and lemon juice
+Dhokla,Legumes,200,8,32,5,4,vegan,snack,indian,Steamed fermented chickpea flour cake from Gujarat
+Peanuts,Nuts,165,7,5,14,2,vegan,snack,indian,Roasted groundnuts lightly salted high in healthy fats
+Vegetable Omelette,Eggs,320,20,8,22,2,vegetarian,breakfast,international,Fluffy omelette with spinach tomatoes and onions
+Muesli with Milk,Grains,340,12,58,8,6,vegetarian,breakfast,international,Crunchy muesli mixed with warm milk and dried fruits
+Cottage Cheese Toast,Dairy,330,18,36,12,3,vegetarian,breakfast,international,Whole wheat toast topped with cottage cheese
+Fruit Smoothie,Fruits,280,6,55,4,5,vegan,breakfast,international,Blend of banana berries and almond milk
+Peanut Butter Banana Smoothie,Nuts,350,12,48,14,5,vegan,breakfast,international,Protein smoothie with peanut butter banana and oats
+Masala Omelette,Eggs,340,22,10,24,2,vegetarian,breakfast,indian,Spicy onion tomato omelette cooked with Indian spices
+Vegetable Uttapam,Grains,320,9,52,10,4,vegan,breakfast,indian,Thick fermented rice pancake topped with vegetables
+Rava Dosa,Grains,300,7,48,10,3,vegan,breakfast,indian,Crispy semolina dosa served with chutney
+Paneer Bhurji,Dairy,360,22,10,24,3,vegetarian,breakfast,indian,Spiced scrambled cottage cheese cooked with onions and tomatoes
+Vegetable Sandwich,Vegetables,310,10,42,12,6,vegetarian,breakfast,international,Whole grain sandwich filled with fresh vegetables
+
+Quinoa Salad,Grains,380,14,55,12,8,vegan,lunch,international,Healthy quinoa bowl with roasted vegetables
+Grilled Tofu Bowl,Soy,400,22,45,14,6,vegan,lunch,international,Grilled tofu served with brown rice and veggies
+Chicken Caesar Wrap,Poultry,460,32,42,16,4,non-vegetarian,lunch,international,Grilled chicken wrap with lettuce and Caesar dressing
+Vegetable Pulao,Grains,420,10,70,12,5,vegan,lunch,indian,Fragrant basmati rice cooked with mixed vegetables
+Paneer Fried Rice,Dairy,450,18,65,16,4,vegetarian,lunch,indian,Stir fried rice with paneer cubes and vegetables
+
+Grilled Paneer Salad,Dairy,380,22,20,22,6,vegetarian,dinner,international,Grilled paneer served on fresh salad greens
+Vegetable Stir Fry,Vegetables,320,10,40,12,7,vegan,dinner,international,Sauteed vegetables in light soy garlic sauce
+Lemon Garlic Fish,Fish,420,36,18,20,3,non-vegetarian,dinner,international,Pan grilled fish with lemon garlic seasoning
+Vegetable Curry with Rice,Vegetables,420,12,60,14,7,vegan,dinner,indian,Mixed vegetable curry served with steamed rice
+Paneer Bhurji with Roti,Dairy,460,24,42,20,5,vegetarian,dinner,indian,Spiced paneer scramble served with wheat roti
+
+Boiled Corn,Grains,150,4,30,2,3,vegan,snack,international,Steamed corn kernels lightly salted
+Trail Mix,Nuts,200,6,20,12,4,vegan,snack,international,Blend of nuts raisins and seeds
+Dark Chocolate,Nuts,170,2,18,11,2,vegan,snack,international,Small portion of antioxidant rich dark chocolate
+Cucumber Salad,Vegetables,80,2,14,1,3,vegan,snack,international,Refreshing cucumber salad with lemon
+Lassi,Dairy,180,8,24,6,0,vegetarian,snack,indian,Sweet yogurt based traditional Indian drink
+Buttermilk,Dairy,90,5,10,2,0,vegetarian,snack,indian,Cooling spiced yogurt drink with cumin
+Roasted Makhana,Seeds,150,6,28,2,3,vegan,snack,indian,Roasted fox nuts tossed with spices
+Sweet Potato Chaat,Vegetables,210,4,42,2,6,vegan,snack,indian,Boiled sweet potatoes tossed with spices and lemon
