@@ -64,6 +64,7 @@ class Database:
             activity_level TEXT,
             fitness_goal   TEXT,
             diet_preference TEXT,
+            health_condition TEXT,
             allergies      TEXT,   -- comma-separated string
             cuisine_pref   TEXT    DEFAULT 'both',
             updated_at     TEXT    DEFAULT (datetime('now'))
