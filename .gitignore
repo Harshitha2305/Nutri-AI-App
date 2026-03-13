@@ -1,0 +1,4 @@
+nutri_ai.db
+.env
+__pycache__/
+*.pyc
