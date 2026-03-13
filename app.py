@@ -7,8 +7,30 @@ import streamlit as st # type: ignore
 from dotenv import load_dotenv # type: ignore
 load_dotenv()
 
-st.set_page_config(page_title="NutriAI — Multi-Agent Nutrition System",
+st.set_page_config(page_title="SmartMealPlanner",
                    page_icon="🥗", layout="wide", initial_sidebar_state="expanded")
+st.markdown("""
+<style>
+header {
+    visibility: hidden;
+}
+.block-container {
+    padding-top: 0rem !important;
+}
+/* File name */
+[data-testid="stFileUploaderFileName"] {
+    color: black !important;
+    font-weight: 600;
+}
+
+/* File size */
+[data-testid="stFileUploaderFileSize"] {
+    color: black !important;
+    font-weight: 500;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 from ui_styles import inject_css
 inject_css()
@@ -65,7 +87,7 @@ if page == "landing" and st.session_state.get("auth_page","landing") == "landing
             if st.button("🌱 Create Account", use_container_width=True):
                 st.session_state.auth_page = "register"; st.rerun()
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown('<div style="text-align:center;color:var(--text-muted);font-size:0.76rem">🥗 NutriAI · AI-Powered Nutrition Guidance · Eat Better Every Day</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align:center;color:var(--text-muted);font-size:0.76rem">🥗 Smart Meal Planner · AI-Powered Nutrition Guidance · Eat Better Every Day</div>', unsafe_allow_html=True)
     st.stop()
 
 # ══════════════════════════════════════════════════════════════════
@@ -155,9 +177,11 @@ if not st.session_state.get("_profile_loaded"):
               "height_cm":db_p.get("height_cm"),"weight_kg":db_p.get("weight_kg"),
               "activity_level":db_p.get("activity_level"),"goal":db_p.get("fitness_goal"),
               "diet_preference":db_p.get("diet_preference"),"allergies":db_p.get("allergies",[]),
-              "cuisine":db_p.get("cuisine_pref","both")}
+              "cuisine":db_p.get("cuisine_pref","both"),
+              "health_condition" :db_p.get("health_condition", "None")}
         with st.spinner("Loading saved profile…"):
             prof = orch.build_and_analyse_profile(fd)
+            prof["health_condition"] = db_p.get("health_condition", "None")
             prof["diet_preference"] = db_p.get("diet_preference","Vegetarian")
             prof["allergies"]       = db_p.get("allergies",[])
             st.session_state.profile   = prof
@@ -171,6 +195,12 @@ if not st.session_state.get("_profile_loaded"):
 
 p = st.session_state.get("profile")
 ready = st.session_state.get("ready", False)
+if p and p.get("health_condition", "None") != "None":
+    st.warning(
+        f"⚠️ Medical condition detected: {p.get('health_condition')}. "
+        "This nutrition plan is intended for general wellness only. "
+        "Please consult a healthcare professional for medical nutrition advice."
+    )
 db_p  = orch.get_user_profile(user_id) or {}
 def sanitize_profile(p):
     if not p:
@@ -189,6 +219,7 @@ def sanitize_profile(p):
         "water_litres": 2,
         "weight_kg": 70,
         "diet_preference": "Vegetarian",
+        "health_condition": "None",
         "goal": "Maintain Weight",
         "insights": {}
     }
@@ -215,7 +246,11 @@ ins.setdefault("hydration_plan", {})
 
 # ──────────────────── SIDEBAR ────────────────────────────────────
 with st.sidebar:
-    st.markdown('<div class="sidebar-logo"><div class="logo-icon">🥗</div><div class="logo-name">NutriAI</div><div class="logo-tag"> Multi-Agent System</div></div>', unsafe_allow_html=True)
+    if is_logged_in():
+        st.success(f"Logged in as {current_user()['name']}")
+    else:
+        st.info("Login to access AI nutrition stats")
+    st.markdown('<div class="sidebar-logo"><div class="logo-icon">🥗</div><div class="logo-name">SmartMeal</div><div class="logo-tag"> Multi-Agent System</div></div>', unsafe_allow_html=True)
     initials = "".join(w[0].upper() for w in user.get("name","U").split()[:2])
     st.markdown(f'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem"><div class="user-avatar">{initials}</div><div><div style="font-size:0.88rem;font-weight:700;color:#E8F5EE">{user.get("name","")}</div><div style="font-size:0.68rem;color:#6EE7B7">{user.get("email","")}</div></div></div>', unsafe_allow_html=True)
 
@@ -236,6 +271,21 @@ with st.sidebar:
     goal     = st.selectbox("Goal", GOAL_OPT, index=_idx(GOAL_OPT, db_p.get("fitness_goal","Maintain Weight")))
     DIET_OPT = ["Vegetarian","Vegan","Non-Vegetarian"]
     diet     = st.selectbox("Diet Preference", DIET_OPT, index=_idx(DIET_OPT, db_p.get("diet_preference","Vegetarian")))
+    COND_OPT = [
+        "None",
+        "Diabetes",
+        "Hypertension (High Blood Pressure)",
+        "Heart Disease",
+        "Kidney Disease",
+        "PCOS",
+        "Thyroid",
+        "Other"
+    ]
+    condition = st.selectbox(
+    "Do you have any medical condition?",
+    COND_OPT,
+    index= _idx(COND_OPT, db_p.get("health_condition", "None"))
+    )
     allergy_raw = st.text_input("Allergies", value=", ".join(db_p.get("allergies",[]) or []), placeholder="nuts, dairy…")
     allergies   = [a.strip() for a in allergy_raw.split(",") if a.strip()]
 
@@ -248,25 +298,26 @@ with st.sidebar:
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🚀 Analyse & Save Profile", use_container_width=True):
         fd = {"age":age,"gender":gender,"weight_kg":w_kg,"height_cm":h_cm,
-              "activity_level":activity,"goal":goal,"diet_preference":diet,
+              "activity_level":activity,"goal":goal,"diet_preference":diet, "health_condition":condition,
               "allergies":allergies,"cuisine":st.session_state.cuisine}
         with st.spinner("Running AI agents…"):
             prof = orch.build_and_analyse_profile(fd, user_id=user_id)
             prof["diet_preference"] = diet
             prof["allergies"]       = allergies
+            prof["health_condition"] = condition
+            _DB.save_profile(user_id, fd)
             st.session_state.profile   = prof
             st.session_state.daily_plan = orch.generate_daily_plan(prof, cuisine=st.session_state.cuisine, user_id=user_id)
             st.session_state.weekly_plan = st.session_state.grocery_list = None
             st.session_state.ready = True
-        st.success("✅ Profile saved!"); st.rerun()
-
+        st.success("✅ Profile saved!")
+        st.rerun()
     if ready and p:
         st.markdown('<div class="sb-section">📊 Stats</div>', unsafe_allow_html=True)
         render_sidebar_stats(p)
         st.markdown('<div class="sb-section">🤖 Agents</div>', unsafe_allow_html=True)
         for line in orch.agent_status():
             st.markdown(f'<div style="font-size:0.67rem;color:#6EE7B7;padding:0.1rem 0">{line}</div>', unsafe_allow_html=True)
-
     st.markdown("---", unsafe_allow_html=True)
     if st.button("🚪 Log Out", use_container_width=True):
         logout(); st.rerun()
@@ -420,29 +471,7 @@ with tab_dash:
             .get("note", "Follow your plan consistently to see progress.")
         )
         insight_card(f"📈 <strong>Projection:</strong> {projection_note}", "purple")
-        if st.session_state.daily_plan:
-            st.markdown("<br>", unsafe_allow_html=True)
-            section_header("🍽️ Today at a Glance",subtitle="Daily Plan tab for full details")
-            plan=st.session_state.daily_plan; snap=st.columns(4)
-            for col,slot in zip(snap,["breakfast","lunch","dinner","snack"]):
-                meals = plan.get("meals", {})
-                m = meals.get(slot, {})
-                sc_ = "#16A34A" if m.get("score",5) >= 8 else "#D97706" if m.get("score",5) >= 6 else "#DC2626"
-                with col:
-                    st.markdown(
-                     f'<div class="meal-wrap"><div class="meal-header" style="padding:0.8rem 1rem">'
-                     f'<div style="display:flex;align-items:center;gap:0.5rem">'
-                     f'<span style="font-size:1.5rem">{m.get("icon","🍽️")}</span>'
-                     f'<div>'
-                     f'<div style="font-size:0.63rem;font-weight:800;text-transform:uppercase;color:var(--green-700)">{m.get("label","Meal")}</div>'
-                     f'<div style="font-size:0.85rem;font-weight:600;color:var(--text-dark)">{m.get("food_name","Food Item")}</div>'
-                     f'</div></div></div>'
-                     f'<div class="meal-body" style="padding:0.6rem 1rem">'
-                     f'<div style="font-size:0.74rem;color:var(--text-muted)">🔥 {m.get("calories","–")} cal · 💪 {m.get("protein","–")}g</div>'
-                     f'<div style="font-size:0.7rem;color:{sc_};font-weight:700;margin-top:0.2rem">⭐ {m.get("score","–")}/10</div>'
-                     f'</div></div>',
-                     unsafe_allow_html=True
-                    )
+        
 # ─── AI ENGINE ────────────────────────────────────────────────────
 with tab_pipe:
     section_header("🧠 AI Decision Engine",subtitle="Multi-agent pipeline · PromptEngine · Live telemetry")
@@ -850,7 +879,7 @@ with tab_chat:
     st.markdown(
         '<div class="chat-wrap"><div class="chat-header">'
         '<span class="chat-header-icon">🤖</span>'
-        '<div><div class="chat-header-title">NutriAI Chat Assistant</div>'
+        '<div><div class="chat-header-title">Chat Assistant</div>'
         '<div class="chat-header-status"></div></div></div></div>',
         unsafe_allow_html=True
     )
@@ -1213,7 +1242,7 @@ with tab_acct:
 st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown(
     '<div style="text-align:center;color:#6B7280;font-size:0.75rem;padding:0.6rem 0">'
-    '🥗 NutriAI · AI-Powered Nutrition Guidance · Eat Better Every Day'
+    '🥗 SmartMeal · AI-Powered Nutrition Guidance · Eat Better Every Day'
     '</div>',
     unsafe_allow_html=True
 )
