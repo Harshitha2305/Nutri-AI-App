@@ -70,11 +70,32 @@ h1,h2,h3,h4,h5 { font-family: 'Instrument Serif', serif !important; }
 
 /* Hide default Streamlit menu/footer */
 #MainMenu, footer { visibility: hidden; }
-.block-container { padding: 1.2rem 2rem 3rem !important; max-width: 1300px !important; }
+.block-container { padding-top: 0.1rem !important;
+padding-left:2rem !important;
+padding-right :2rem !important;
+padding-bottom: 2rem !important;
+max-width: 1300px !important;}
 
+/* Remove top blank space from Streamlit */
+header[data-testid="stHeader"] {
+    height: 0px !important;
+}
+
+[data-testid="stToolbar"] {
+    display: none !important;
+}
 /* ═══════════════════════════════════════════════════════════
    SIDEBAR
 ═══════════════════════════════════════════════════════════ */
+[data-testid="stAlert"] {
+  color : #111111 !important;
+  margin-top :0.2rem !important;
+  margin-bottom :0.6rem !important;
+}
+[data-testid="stAlert"] p {
+  color : #111111 !important;
+  font-weight :500;
+}
 [data-testid="stSidebar"] {
   background: linear-gradient(180deg, var(--green-950) 0%, #0D3320 50%, var(--green-900) 100%) !important;
   border-right: 1px solid rgba(74,222,128,0.1);
@@ -139,8 +160,8 @@ h1,h2,h3,h4,h5 { font-family: 'Instrument Serif', serif !important; }
 ═══════════════════════════════════════════════════════════ */
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--card); border-radius: var(--radius-lg);
-  padding: 1rem 2rem; margin-bottom: 1.4rem;
+  background: var(--card); border-radius: 3px;
+  padding: 1.6rem 2.5rem !important; margin-bottom: 1.4rem;
   box-shadow: var(--shadow-sm); border: 1px solid var(--border);
 }
 .topbar-left { display: flex; align-items: center; gap: 0.9rem; }
