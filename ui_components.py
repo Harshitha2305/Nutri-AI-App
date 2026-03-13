@@ -403,7 +403,7 @@ def render_sidebar_logo():
     st.markdown("""
     <div class="sidebar-logo">
         <div class="logo-icon">🥗</div>
-        <div class="logo-name">NutriAI</div>
+        <div class="logo-name">SmartMeal</div>
         <div class="logo-tag">Multi-Agent System</div>
     </div>""", unsafe_allow_html=True)
 
@@ -449,7 +449,7 @@ def render_topbar(ready: bool = False, profile: dict = None):
         <div class="topbar-left">
             <span class="topbar-icon">🥗</span>
             <div>
-                <div class="topbar-title">NutriAI</div>
+                <div class="topbar-title">SmartMeal</div>
                 <div class="topbar-sub">{status_dot} {status_txt}</div>
             </div>
         </div>
@@ -477,7 +477,7 @@ def render_landing_page():
         <div style="font-size:4rem;margin-bottom:0.5rem">🥗</div>
         <h1 style="font-family:'Instrument Serif',serif;font-size:3rem;
                    color:var(--green-900);line-height:1.1;margin-bottom:0.5rem">
-            NutriAI <span style="color:var(--green-700);font-style:italic"></span>
+            SmartMeal <span style="color:var(--green-700);font-style:italic"></span>
         </h1>
         <p style="font-size:1rem;color:var(--text-muted);max-width:500px;
                   margin:0 auto 1.5rem;line-height:1.65">
@@ -515,7 +515,7 @@ def render_auth_logo():
     st.markdown("""
     <div class="auth-logo">
         <div class="al-icon">🥗</div>
-        <div class="al-name">NutriAI</div>
+        <div class="al-name">SmartMeal</div>
         <div class="al-tag">Multi-Agent Nutrition System</div>
     </div>""", unsafe_allow_html=True)
 
@@ -550,7 +550,7 @@ def render_user_topbar(user: dict, profile: dict = None, ready: bool = False):
         <div class="topbar-left">
             <span class="topbar-icon">🥗</span>
             <div>
-                <div class="topbar-title">NutriAI</div>
+                <div class="topbar-title">SmartMeal</div>
                 <div class="topbar-sub">{'🟢 ' if ready else '⚪ '}{status}</div>
             </div>
         </div>
