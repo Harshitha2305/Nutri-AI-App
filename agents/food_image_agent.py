@@ -8,7 +8,7 @@ import io
 import os
 
 from PIL import Image
-from google import genai
+import google.generativai as genai
 
 from .agent_base import BaseAgent
 
